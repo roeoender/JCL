@@ -1,5 +1,15 @@
 !https://travis-ci.org/kamranzafar/JCL.png?branch=master!:https://travis-ci.org/kamranzafar/JCL
 
+JCK that is able to release in-memory classpath resources, thus uses less memory.
+
+h1. Differences from oryginal JCL by kamranzafar
+* ClasspathResource has additional parameter - skipNonClassResources - to skip loading to momemory entries other than classes
+* PreloadedJarClassLoader - a little bit modified version of JarClassLoader:
+** uses ClasspathResource with skipNonClassResources = true
+** additional method dropAllResources allows dropping held in memory resources (can be used after loading all necessary classes)
+
+Below is oryginal information from kamranzafar/JCL
+
 h1. Overview
 
 JCL is a configurable, dynamic and extensible custom classloader that loads java classes directly from Jar files and other sources. The motivation was to create isolated classloaders, which can be easily integrated with IoC frameworks like Spring and with web applications.
